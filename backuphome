@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+BACKUP_DIR=$(date +'%m-%d-%Y')
+PATH_BK=/run/media/theo/Backup_Volume/manjarobackup/$BACKUP_DIR
+
+PATH_BK2=/run/media/root/Backup_Volume/manjarobackup/$BACKUP_DIR
+
+#if [ ! -d $PATH_BK ];
+#then
+#    PATH_BK=$PATH_BK2
+#fi
+
+rsync -aP --protect-args --info=progress2 --exclude=VirtualBox\ VMs --exclude=kvms '/home/theo/' $PATH_BK

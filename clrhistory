@@ -1,0 +1,16 @@
+#!/bin/sh
+if [ ! -f /home/theo/.zsh_history ]; then
+    echo "File not found!"
+    return
+fi
+echo "Preparing to clear zsh history"
+
+DATE=`date '+%Y-%m-%d-%H:%M'`
+FILE=/home/theo/zsh-history-backup-$DATE.txt
+
+cat /home/theo/.zsh_history > $FILE
+cat /dev/null > /home/theo/.zsh_history
+echo Saved as $FILE
+
+
+
